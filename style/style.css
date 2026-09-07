@@ -1,0 +1,2451 @@
+/* Establishes the basic sizing behavior for all elements. */
+/*
+CSS FOUNDATION — STEP 1
+
+```
+Purpose:
+Establish the basic rules that every page on the website will use
+before we begin styling individual sections and components.
+
+What this does:
+1. The universal selector (*) applies box-sizing: border-box to
+   every HTML element. This makes width and height calculations
+   more predictable by including an element's padding and border
+   within its defined width and height.
+
+2. The body margin is set to 0 to remove the browser's default
+   spacing around the page. This gives us complete control over
+   the site's layout and spacing.
+
+Why we do this:
+These are foundation rules. They create a predictable starting
+point for the rest of the stylesheet and prevent browser defaults
+from interfering with the layout we build.
+```
+
+*/
+
+* {
+    box-sizing: border-box;
+}
+/* added by me so the background is all one color and not just the header and hero sections */
+html, body {
+    background-color: #5B8CB8; /* #5B8CB8 #2B5B84 */
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    CONTAINER
+
+    max-width: 1200px;
+        Sets the maximum width that a container can grow to.
+        This prevents the content from becoming too wide on
+        large screens.
+
+    margin: 0 auto;
+        margin controls the space outside an element.
+        0 sets the top and bottom margin to zero.
+        auto tells the browser to automatically divide the
+        remaining horizontal space equally on the left and right.
+        This centers the container on the page.
+
+    padding: 0 20px;
+        padding controls the space inside an element, between
+        its content and its edge.
+        0 sets the top and bottom padding to zero.
+        20px sets 20 pixels of space on the left and right.
+        This keeps content from touching the edges of the container.
+
+    Why:
+        The container keeps the site's content at a readable width,
+        centers it on larger screens, and provides space between
+        the content and the edges of the page.
+*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*
+    SITE HEADER — BACKGROUND
+
+    background-color: #eeeeee;
+        Sets the background color of the header.
+        #eeeeee is a very light gray.
+
+    Why:
+        Gives the header a visible background so we can clearly
+        see where the header begins and ends while developing
+        the site's layout.
+*/
+
+.site-header {
+    background-color: #555555;
+}
+/*
+    SITE HEADER — FLEXBOX LAYOUT
+
+    display: flex;
+        Turns the container into a flex container.
+        This allows its direct child elements to be arranged
+        in a row or column.
+
+    justify-content: space-between;
+        Controls how the available horizontal space is distributed
+        between the logo and the navigation.
+        space-between pushes the first item to the left and the
+        last item to the right.
+
+    align-items: center;
+        Controls how the items are aligned vertically.
+        center places the logo and navigation in the middle of
+        the header's height.
+
+    Why:
+        Places the site logo and navigation on the same horizontal
+        line and gives the header a clean, professional layout.
+*/
+
+/*
+    SITE HEADER — FLEXBOX AND SPACING
+
+    display: flex;
+        Turns the container into a flex container.
+
+    justify-content: space-between;
+        Places the logo and navigation at opposite sides
+        of the available horizontal space.
+
+    align-items: center;
+        Vertically centers the logo and navigation.
+
+    padding: 20px 0;
+        Adds space inside the top and bottom of the container.
+        20px is added above and below the content.
+        0 adds no additional padding to the left and right.
+
+    Why:
+        Gives the header more breathing room vertically while
+        keeping the logo and navigation aligned in the center.
+*/
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+/*
+    HERO SECTION — BACKGROUND
+
+    background-color: #f5f5f5;
+        Sets the background color of the hero section.
+        #f5f5f5 is a very light gray.
+
+    Why:
+        Gives the hero section a visible background so we can
+        clearly see where the header ends and the hero begins
+        while we build the page.
+*/
+
+/*
+    HERO SECTION — SPACING
+
+    padding: 80px 0;
+        Adds space inside the hero section.
+        80px creates space above and below the hero content.
+        0 creates no additional left or right padding because
+        the .container already handles the horizontal spacing.
+
+    Why:
+        Gives the hero content room to breathe and makes the
+        hero feel like an intentional, prominent section of
+        the homepage.
+*/
+
+.hero {
+    /* background-color: #f5f5f5; */
+    padding: 80px 0;
+    /* background-color: #D8E0E5;  added by me */
+}
+/*
+    HERO EYEBROW
+
+    font-size: 0.9rem;
+        Sets the text slightly smaller than the normal body text.
+
+    font-weight: 700;
+        Makes the text bold.
+
+    text-transform: uppercase;
+        Converts the letters to uppercase when displayed.
+
+    letter-spacing: 1px;
+        Adds 1 pixel of space between each letter.
+
+    Why:
+        Makes the eyebrow text visually distinct from the main
+        heading and establishes it as a small introductory label.
+*/
+
+.hero-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/*
+    HERO MAIN HEADING
+
+    font-size: 3rem;
+        Sets the size of the main heading.
+        3rem is three times the root font size.
+
+    line-height: 1.1;
+        Controls the vertical space between lines of the heading.
+        A value of 1.1 keeps a large heading relatively compact.
+
+    margin: 0;
+        Removes the browser's default margin around the heading.
+        This gives us control over the spacing ourselves.
+
+    Why:
+        Makes the main message of the website large and prominent
+        while giving us predictable control over its spacing.
+*/
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin: 0;
+}
+/*
+    HERO SUPPORTING TEXT
+
+    max-width: 650px;
+        Sets the maximum width of the paragraph.
+        The text can become smaller than 650px when necessary,
+        but it will not grow wider than 650 pixels.
+
+    margin: 24px 0 0;
+        Controls the space outside the paragraph.
+        24px adds space above the paragraph.
+        0 sets the left, right, and bottom margins to zero.
+
+    Why:
+        Keeps the supporting text from becoming too wide on
+        large screens and creates separation between the heading
+        and the paragraph.
+*/
+
+.hero-text {
+    max-width: 650px;
+    margin: 24px 0;
+}
+/*
+    HERO ACTIONS — FLEXBOX
+
+    display: flex;
+        Turns the hero-actions container into a flex container.
+        Its direct children, the two buttons, can now be
+        arranged using Flexbox.
+
+    gap: 16px;
+        Adds 16 pixels of space between the buttons.
+        The gap applies only between the flex items.
+
+    margin-top: 24px;
+        Adds 24 pixels of space above the buttons.
+        This separates the buttons from the supporting paragraph.
+
+    Why:
+        Places the two action buttons beside each other and gives
+        them consistent spacing from one another and from the
+        paragraph above.
+*/
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+/*
+    BUTTON — BASIC STYLING
+
+    display: inline-block;
+        Allows the link to behave more like a button.
+        It allows us to apply padding and control its dimensions
+        more predictably.
+
+    padding: 12px 24px;
+        Adds space inside the button.
+        12px adds space above and below.
+        24px adds space to the left and right.
+
+    text-decoration: none;
+        Removes the default underline from the link.
+
+    font-weight: 700;
+        Makes the button text bold.
+
+    background-color: #222222;
+        Sets the background color of the button.
+        #222222 is a dark gray.
+
+    color: #ffffff;
+        Sets the color of the button text.
+        #ffffff is white.
+
+    Why:
+        Gives the link the basic shape, spacing, background,
+        and text appearance of a button while keeping both
+        buttons consistent.
+*/
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: #222222;
+    color: #ffffff;
+}
+/*
+    SECONDARY BUTTON
+
+    background-color: #ffffff;
+        Sets the background color of the secondary button.
+        #ffffff is white.
+
+    color: #222222;
+        Sets the text color of the secondary button.
+        #222222 is a dark gray.
+
+    Why:
+        Creates a light secondary button that contrasts with
+        the dark primary button while keeping the text readable.
+*/
+
+.button-dark {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/*
+    WHY US SECTION
+
+    background-color: #ffffff;
+        Sets the section background to white.
+
+    padding: 80px 0;
+        Adds 80px of space above and below the section content.
+        The left and right padding remain 0 because the
+        .container already controls horizontal spacing.
+
+    Why:
+        Gives the Why Us section its own visual area and
+        creates comfortable space between the hero and the
+        content that follows.
+*/
+
+.why-us
+ {
+    /* background-color: #ffffff; */
+    padding: 80px 0;
+    /* background-color: #D8E0E5; */
+}
+/*
+    WHY US SECTION EYEBROW
+
+    font-size: 0.9rem;
+        Makes the eyebrow text smaller than normal body text.
+
+    font-weight: 700;
+        Makes the text bold so it stands out.
+
+    text-transform: uppercase;
+        Displays the text in uppercase letters.
+
+    letter-spacing: 1px;
+        Adds a small amount of space between the letters.
+
+    margin-bottom: 12px;
+        Adds 12px of space below the eyebrow before the heading.
+
+    Why:
+        Creates a visual hierarchy between the small section
+        label and the main heading.
+*/
+
+.why-us .section-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+/*
+    SERVICES SECTION EYEBROW
+
+    font-size: 0.9rem;
+        Makes the eyebrow text smaller than normal body text.
+
+    font-weight: 700;
+        Makes the text bold so it stands out.
+
+    text-transform: uppercase;
+        Displays the text in uppercase letters.
+
+    letter-spacing: 1px;
+        Adds a small amount of space between the letters.
+
+    margin-bottom: 12px;
+        Adds 12px of space below the eyebrow before the heading.
+
+    Why:
+        Creates the same visual hierarchy used in the Why Us
+        section and keeps the Services section consistent.
+*/
+
+.services-preview .section-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+/*
+    PORTFOLIO SECTION EYEBROW
+
+    font-size: 0.9rem;
+        Makes the eyebrow text smaller than normal body text.
+
+    font-weight: 700;
+        Makes the text bold so it stands out.
+
+    text-transform: uppercase;
+        Displays the text in uppercase letters.
+
+    letter-spacing: 1px;
+        Adds a small amount of space between the letters.
+
+    margin-bottom: 12px;
+        Adds 12px of space below the eyebrow before the heading.
+
+    Why:
+        Creates the same visual hierarchy used in the Why Us
+        and Services sections and keeps the Portfolio section
+        consistent with the rest of the website.
+*/
+
+.portfolio-preview .section-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+/*
+    PORTFOLIO SECTION HEADING
+
+    font-size: 2.25rem;
+        Sets the main Portfolio heading to the same size as
+        the main headings in the Why Us and Services sections.
+
+    line-height: 1.2;
+        Keeps the spacing between lines compact and readable.
+
+    margin: 0 0 16px;
+        Removes the default top margin and adds 16px of space
+        below the heading before the introductory paragraph.
+
+    Why:
+        Keeps the main headings across the Why Us, Services,
+        and Portfolio sections visually consistent.
+*/
+
+.portfolio-preview h2 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+/*
+    SERVICES SECTION INTRO
+
+    max-width: 700px;
+        Limits how wide the paragraph can become.
+        Shorter lines are easier to read.
+
+    margin: 0 0 40px;
+        Removes the default top margin and adds 40px of
+        space below the paragraph before the service cards.
+
+    Why:
+        Matches the introductory spacing used in the Why Us
+        section and creates clear separation between the
+        introduction and the three services underneath it.
+*/
+
+.services-preview .section-intro {
+    max-width: 700px;
+    margin: 0 0 40px;
+}
+/*
+    WHY US HEADING
+
+    font-size: 2.25rem;
+        Makes the section heading substantially larger than
+        the normal body text.
+
+    line-height: 1.2;
+        Keeps the lines of the heading close together while
+        remaining easy to read.
+
+    margin: 0 0 16px;
+        Removes the default top margin and adds 16px of space
+        below the heading.
+
+    Why:
+        Establishes the main visual heading for the Why Us
+        section without affecting headings elsewhere on the site.
+*/
+
+.why-us h2 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+/*
+    SERVICES SECTION HEADING
+
+    font-size: 2.25rem;
+        Sets the main Services heading to the same size as
+        the main heading in the Why Us section.
+
+    line-height: 1.2;
+        Keeps the spacing between lines compact and readable.
+
+    margin: 0 0 16px;
+        Removes the default top margin and adds 16px of space
+        below the heading before the introductory paragraph.
+
+    Why:
+        Keeps the main headings in the Why Us and Services
+        sections visually consistent.
+*/
+
+.services-preview h2 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+/*
+    WHY US SECTION INTRO
+
+    max-width: 700px;
+        Limits how wide the paragraph can become.
+        Shorter lines are easier to read.
+
+    margin: 0 0 40px;
+        Removes the default top margin and adds 40px of
+        space below the paragraph.
+
+    Why:
+        Keeps the introductory text readable and creates
+        clear separation between the introduction and the
+        four reasons underneath it.
+*/
+
+.why-us .section-intro {
+    max-width: 700px;
+    margin: 0 0 40px;
+}
+/*
+    WHY US GRID
+
+    display: grid;
+        Turns the container into a CSS Grid layout.
+
+    grid-template-columns: repeat(4, 1fr);
+        Creates four equal-width columns.
+        Each card gets one column.
+
+    gap: 24px;
+        Adds 24px of space between the cards.
+
+    Why:
+        Creates the four-column layout for the four reasons
+        customers should choose Old Guy Web Works.
+*/
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+/*
+    WHY US CARDS
+
+    padding: 24px;
+        Adds 24px of space inside each card between the
+        content and the edges of the card.
+
+    background-color: #f5f5f5;
+        Gives each card a light gray background so it is
+        visually separated from the white section.
+
+    border: 1px solid #e4e8eb;
+        Adds a thin, light gray line around each card.
+        "1px" is the thickness.
+        "solid" is the line style.
+        "#e4e8eb" is the border color.
+
+    Why:
+        Creates a defined visual area for each of the four
+        reasons customers should choose Old Guy Web Works.
+        The border gives the cards a little more definition
+        against the page background.
+*/
+
+.why-us-card {
+    padding: 24px;
+    background-color: #555555; /*#555555 f5f5f5*/
+    border: 1px solid #e4e8eb;
+    color: #ffffff; /* added by me */
+}
+/*
+    SITE LOGO
+
+    font-size: 1.5rem;
+        Sets the size of the logo text.
+        rem is a relative unit based on the root font size.
+
+    font-weight: 700;
+        Controls how thick or bold the text appears.
+        700 represents a bold font weight.
+
+    text-decoration: none;
+        Removes the default underline from the logo link.
+
+    color: #222222;
+        Sets the color of the logo text to dark gray.
+
+    Why:
+        Makes the business name stand out as the primary
+        branding element in the header while keeping it
+        visually clean.
+*/
+/*
+    SERVICES GRID
+
+    display: grid;
+        Turns the services container into a CSS grid so the
+        individual service cards can be arranged in columns.
+
+    grid-template-columns: repeat(3, 1fr);
+        Creates three equal-width columns, one for each service.
+
+    gap: 24px;
+        Adds 24 pixels of space between the service cards.
+
+    Why:
+        Keeps the three services organized in a clean,
+        consistent row and matches the spacing used by the
+        Why Old Guy Web Works cards above.
+*/
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/*
+    SERVICE CARDS
+
+    padding: 24px;
+        Adds 24px of space inside each service card between
+        the content and the edges of the card.
+
+    background-color: #f5f5f5;
+        Gives each service card the same light gray background
+        used by the Why Us cards.
+
+    border: 1px solid #e4e8eb;
+        Adds a thin, light gray border around each card.
+
+    Why:
+        Creates a defined visual area for each service and
+        keeps the Services section visually consistent with
+        the Why Old Guy Web Works section.
+*/
+
+.service-card {
+    padding: 24px;
+    background-color: #555555; /*#555555 f5f5f5 */
+    border: 1px solid #e4e8eb;
+    color: #ffffff; /* added by me */
+}
+/*
+    SERVICES PREVIEW BUTTON SPACING
+
+    margin-top: 8px;
+        Adds a small amount of space between the service
+        cards and the button.
+
+    margin-bottom: 40px;
+        Adds 40px of space below the button before the
+        next section begins.
+
+    Why:
+        Gives the Services section some breathing room and
+        keeps the button from appearing crowded against the
+        service cards or the following section.
+*/
+
+.services-preview .button {
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+/*
+    PORTFOLIO GRID
+
+    display: grid;
+        Turns the portfolio container into a CSS grid so the
+        individual portfolio cards can be arranged in columns.
+
+    grid-template-columns: repeat(3, 1fr);
+        Creates three equal-width columns, one for each
+        portfolio project.
+
+    gap: 24px;
+        Adds 24 pixels of space between the portfolio cards.
+
+    Why:
+        Keeps the three portfolio projects organized in a
+        clean row and maintains the same spacing used by
+        the Services section.
+*/
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+/*
+    PORTFOLIO CARDS
+
+    padding: 24px;
+        Adds 24px of space inside each portfolio card between
+        the content and the edges of the card.
+
+    background-color: #f5f5f5;
+        Gives each portfolio card a light gray background.
+
+    border: 1px solid #e4e8eb;
+        Adds a thin, light gray border around each card.
+
+    Why:
+        Creates a defined visual area for each portfolio project
+        and keeps the portfolio cards visually consistent with
+        the Services and Why Us cards.
+*/
+
+.portfolio-card {
+    padding: 24px;
+    background-color: #555555; /* #555555 f5f5f5*/
+    border: 1px solid #e4e8eb;
+    color: #ffffff; /* added by me */
+}
+/* I added this to make the links white in the portfolio cards. I also added color: #ffffff to the .portfolio-card class above. */
+.portfolio-card a {
+    color: #ffffff;
+}
+
+.portfolio-preview .button {
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+/*
+    CALL-TO-ACTION SECTION
+
+    padding: 60px 0;
+        Adds 60px of space above and below the CTA content.
+        The 0 keeps the existing horizontal container spacing.
+
+    background-color: #f5f5f5;
+        Gives the CTA a light gray background so it is visually
+        separated from the sections above it.
+
+    text-align: center;
+        Centers the heading, supporting text, and button.
+
+    Why:
+        Creates a clear visual break and gives the visitor a
+        focused final invitation to contact Old Guy Web Works.
+*/
+
+.cta {
+    padding: 60px 24px;
+    background-color: #555555;
+    text-align: center;
+    color: #ffffff;
+    
+    /* Pulls sides inward by 50px on each side (100px total reduction) */
+    width: calc(100% - 100px); 
+    margin: 0 auto;           /* Keeps the block centered */
+    box-sizing: border-box;   /* Prevents padding from breaking width */
+    border-radius: 0;         /* Keeps sharp square corners */
+}
+
+.site-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white; /*made white by me */
+}
+/*
+    SITE NAVIGATION — FLEXBOX
+
+    display: flex;
+        Turns the navigation into a flex container.
+        Its direct children, the navigation links, will be
+        arranged in a row.
+
+    gap: 24px;
+        Sets 24 pixels of space between each navigation link.
+        Unlike margin, gap creates spacing between flex items
+        without adding space around the outside of each item.
+
+    Why:
+        Creates consistent horizontal spacing between the
+        navigation links and keeps the navigation easy to read.
+*/
+
+.site-nav {
+    display: flex;
+    gap: 24px;
+}
+/*
+    NAVIGATION LINKS
+
+    text-decoration: none;
+        Removes the browser's default underline from the links.
+
+    color: #222222;
+        Sets the color of the navigation text to dark gray.
+
+    Why:
+        Gives us control over the appearance of the navigation
+        instead of relying on the browser's default link styling.
+        The a in .site-nav a targets only the anchor tags inside the navigation container.
+*/
+
+.site-nav a {
+    text-decoration: none;
+    color: white; /*made white by me */
+}
+ /*
+    SITE FOOTER
+
+    padding: 32px 0;
+        Adds 32px of space above and below the footer content.
+
+    background-color: #222222;
+        Gives the footer a dark background so it is clearly
+        separated from the main content of the website.
+
+    color: #ffffff;
+        Makes the footer text white so it is readable against
+        the dark background.
+
+    text-align: center;
+        Centers the copyright notice and Contact Us link.
+
+    Why:
+        Creates a simple, clean footer that visually closes
+        the website and separates it from the main content.
+*/
+
+/* Style the outer footer bar */
+.site-footer {
+    background-color: #555555;
+    padding: 16px 0;
+    margin-top: 32px;
+}
+
+/* Center the items inside the container */
+.site-footer .container {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;    /* Keeps items vertically aligned */
+    gap: 16px;              /* Even space between text and link */
+    flex-wrap: wrap;        /* Allows clean wrapping on small mobile screens */
+}
+
+/* Reset default paragraph margins and fix line-height */
+.site-footer p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+/* Style the contact link */
+.site-footer a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-decoration: underline;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+/*
+    RESPONSIVE DESIGN — TABLET AND MOBILE
+
+    This section controls how the homepage responds to smaller
+    screen sizes.
+
+    Why:
+        The desktop layout uses multiple columns for the card
+        sections. Those columns become too narrow on smaller
+        screens, so the layout needs to change as the screen
+        gets smaller.
+
+    Breakpoints used:
+
+        900px and below:
+            Adjusts the card grids to two columns.
+
+        600px and below:
+            Changes the card grids to one column and adjusts
+            the header, navigation, hero, buttons, and CTA for
+            smaller mobile screens.
+
+    Important:
+        These rules are added at the end of the stylesheet so
+        they override the existing desktop layout only when
+        the screen reaches the specified size.
+*/
+
+
+/*
+    TABLET — TWO COLUMN LAYOUT
+
+    At 900px and below, the four Why Us cards change from
+    four columns to two columns.
+
+    The Services and Portfolio cards change from three
+    columns to two columns.
+
+    Why:
+        Two columns provide enough room for the card content
+        while making better use of the available screen width.
+*/
+
+@media (max-width: 900px) {
+
+    .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/*
+    MOBILE — SINGLE COLUMN LAYOUT
+
+    At 600px and below, the page changes to a single-column
+    layout.
+
+    Why:
+        On a phone, placing multiple cards beside each other
+        would make the content too narrow and difficult to read.
+        A single column allows each section to use the available
+        screen width more effectively.
+*/
+
+@media (max-width: 600px) {
+
+    /*
+        HEADER
+
+        Changes the header from a horizontal layout to a
+        vertical layout.
+
+        Why:
+            Gives the logo and navigation enough room on
+            smaller screens and prevents the navigation from
+            becoming cramped.
+    */
+
+    .site-header .container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+
+    /*
+        NAVIGATION
+
+        Allows the navigation links to wrap onto additional
+        lines when necessary.
+
+        Why:
+            Prevents the navigation from extending beyond the
+            screen on smaller devices.
+    */
+
+    .site-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+
+    /*
+        HERO HEADING
+
+        Reduces the main heading size on smaller screens.
+
+        Why:
+            Keeps the main heading prominent without allowing
+            it to take up too much horizontal space.
+    */
+
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+
+    /*
+        HERO ACTIONS
+
+        Changes the hero buttons from a horizontal row to a
+        vertical layout.
+
+        Why:
+            Gives each button enough width and makes the buttons
+            easier to use with a finger on a mobile device.
+    */
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /*
+        HERO BUTTONS
+
+        Gives the buttons a consistent width on smaller screens.
+
+        Why:
+            Creates a cleaner mobile appearance and provides
+            a larger touch target.
+    */
+
+    .hero-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /*
+        WHY US GRID
+
+        Changes the four-card layout to a single column.
+
+        Why:
+            Keeps each card readable and prevents the content
+            from becoming too narrow.
+    */
+
+    .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /*
+        SERVICES GRID
+
+        Changes the three-card layout to a single column.
+    */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /*
+        PORTFOLIO GRID
+
+        Changes the three-card layout to a single column.
+    */
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /*
+        CTA
+
+        Reduces the side spacing used by the desktop CTA.
+
+        Why:
+            The desktop CTA intentionally pulls inward by
+            100px total. That amount of empty space is too much
+            on a phone, where screen width is limited.
+    */
+
+    .cta {
+        width: calc(100% - 40px);
+        padding: 50px 20px;
+    }
+}
+/*
+    ABOUT PAGE
+    ------------------------------------------------------------
+    Start of About page-specific styling.
+*/
+/*
+    ABOUT PAGE CONTAINER
+
+    max-width: 1100px;
+        Limits the width of the About page content so that
+        text does not stretch too far across a large screen.
+
+    margin: 0 auto;
+        Centers the content horizontally on the page.
+
+    padding: 40px 24px;
+        Adds 40px of space above and below the content and
+        24px of space on the left and right.
+
+    box-sizing: border-box;
+        Makes the padding part of the element's total width.
+
+    Why:
+        Creates a clean, centered content area for the About page
+        without affecting the layout of the other pages.
+*/
+/*
+    ABOUT PAGE IMAGE
+
+    width: 300px;
+        Sets the displayed width of the About page image.
+
+    max-width: 100%;
+        Prevents the image from becoming wider than the screen
+        on smaller devices.
+
+    height: auto;
+        Keeps the image's original proportions.
+
+    display: block;
+        Allows the image to be centered using margin.
+
+    margin: 0 auto 32px auto;
+        Centers the image horizontally and adds 32px of space
+        below it.
+
+    Why:
+        Keeps the workspace image prominent without allowing it
+        to dominate the About page.
+*/
+
+#about .hero-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px auto;
+}
+/*
+    ABOUT PAGE TITLE
+
+    font-size: 2.5rem;
+        Makes the page title large enough to establish a clear
+        visual hierarchy.
+
+    font-weight: 700;
+        Gives the title a strong, professional appearance.
+
+    text-align: center;
+        Centers the title within the page container.
+
+    margin: 40px 0 24px 0;
+        Adds space above the title and creates separation
+        between the title and the image below it.
+
+    Why:
+        Gives the About page its own clear identity while
+        maintaining the typography established by the Home page.
+*/
+
+main h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 40px 0 24px 0;
+}
+/*
+    ABOUT PAGE SECTION HEADINGS
+
+    font-size: 1.8rem;
+        Makes the section heading prominent without competing
+        with the main page title.
+
+    font-weight: 700;
+        Gives the heading a strong, clear appearance.
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below the heading before the paragraph begins.
+
+    Why:
+        Creates a clear visual separation between the page title
+        and the individual sections of the About page.
+*/
+
+#about h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+/*
+    ABOUT PAGE PARAGRAPHS
+
+    max-width: 900px;
+        Limits the width of the text so the longer paragraphs
+        remain comfortable to read.
+
+    margin: 0 auto 20px auto;
+        Centers the text within the container and adds 20px
+        of space below each paragraph.
+
+    line-height: 1.7;
+        Provides comfortable vertical spacing between lines.
+
+    Why:
+        Makes the longer About page text easier to read and
+        creates a cleaner, more professional page layout.
+*/
+
+#about p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+}
+/*
+    ABOUT PAGE PARAGRAPHS
+
+    max-width: 900px;
+        Limits the width of the text so the longer paragraphs
+        remain comfortable to read.
+
+    margin: 0 auto 20px auto;
+        Centers the text within the container and adds 20px
+        of space below each paragraph.
+
+    line-height: 1.7;
+        Provides comfortable vertical spacing between lines.
+
+    Why:
+        Makes the longer About page text easier to read and
+        creates a cleaner, more professional page layout.
+*/
+
+#about p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+}
+/*
+    ABOUT PAGE SUBHEADING
+
+    font-size: 1.2rem;
+        Makes the subheading slightly larger than normal body
+        text without competing with the main section headings.
+
+    font-weight: 600;
+        Gives the subheading emphasis while keeping it lighter
+        than the main h2 headings.
+
+    margin: 28px auto 20px auto;
+        Adds space above the subheading and separates it from
+        the paragraph above and below.
+
+    max-width: 900px;
+        Keeps the subheading aligned with the paragraph text.
+
+    Why:
+        Gives the "That's the idea behind Old Guy Web Works."
+        statement a clear role as a supporting heading.
+*/
+
+#about h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    max-width: 900px;
+    margin: 28px auto 20px auto;
+}
+/* This is the section for the services page. I added this to make the services page look more like the other pages. */
+/*
+    SERVICES PAGE IMAGE
+
+    width: 300px;
+        Sets the displayed width of the Services page image.
+
+    max-width: 100%;
+        Prevents the image from becoming wider than the screen
+        on smaller devices.
+
+    height: auto;
+        Keeps the image's original proportions.
+
+    display: block;
+        Allows the image to be centered using margin.
+
+    margin: 0 auto 32px auto;
+        Centers the image horizontally and adds 32px of space
+        below it.
+
+    Why:
+        Keeps the Services page image consistent with the
+        smaller workspace image used on the About page.
+*/
+
+#services .hero-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px auto;
+}
+/*
+    SERVICES PAGE TITLE
+
+    font-size: 2.5rem;
+        Makes the page title large enough to establish a clear
+        visual hierarchy.
+
+    font-weight: 700;
+        Gives the title a strong, professional appearance.
+
+    text-align: center;
+        Centers the page title within the page container.
+
+    margin: 40px 0 24px 0;
+        Adds space above the title and creates separation
+        between the title and the image below it.
+
+    Why:
+        Gives the Services page the same title treatment as
+        the About page and keeps the site's pages visually
+        consistent.
+*/
+
+main h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 40px 0 24px 0;
+}
+/*
+    SERVICES PAGE SECTION HEADINGS
+
+    font-size: 1.8rem;
+        Makes the section heading prominent without competing
+        with the main page title.
+
+    font-weight: 700;
+        Gives the heading a strong, clear appearance.
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below the heading before the paragraph begins.
+
+    Why:
+        Keeps the Services page section heading consistent
+        with the section headings used on the About page.
+*/
+
+#services h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+/*
+    SERVICES PAGE PARAGRAPHS
+
+    max-width: 900px;
+        Limits the width of the text so the longer paragraphs
+        remain comfortable to read.
+
+    margin: 0 auto 20px auto;
+        Centers the text within the container and adds 20px
+        of space below each paragraph.
+
+    line-height: 1.7;
+        Provides comfortable vertical spacing between lines.
+
+    Why:
+        Makes the longer Services page text easier to read and
+        keeps its layout consistent with the About page.
+*/
+
+#services p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+}
+/*
+    SERVICES PAGE SUBHEADING
+
+    font-size: 1.2rem;
+        Makes the subheading slightly larger than normal body
+        text without competing with the main section headings.
+
+    font-weight: 600;
+        Gives the subheading emphasis while keeping it lighter
+        than the main h2 headings.
+
+    max-width: 900px;
+        Keeps the subheading aligned with the paragraph text.
+
+    margin: 0 auto 20px auto;
+        Centers the text within the content area and adds
+        space below it.
+
+    Why:
+        Gives "Why Choose Old Guy Web Works?" a clear visual
+        role as a supporting heading.
+*/
+
+#services p strong:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+/*
+    SERVICES PAGE SECOND SECTION HEADING
+
+    margin-top: 32px;
+        Adds clear separation between the first group of
+        Services content and the second section.
+
+    Why:
+        Creates a stronger visual break between the two major
+        topics on the Services page while keeping the same
+        heading style already established.
+*/
+
+#services .service-tagline {
+    margin-top: 32px;
+}
+/*
+    SERVICES PAGE SECTION DIVIDER
+
+    max-width: 900px;
+        Keeps the divider aligned with the main text content.
+
+    margin: 36px auto;
+        Adds balanced space above and below the divider and
+        centers it within the page content.
+
+    Why:
+        Creates a clean visual separation between the two major
+        sections of the Services page.
+*/
+
+#services hr {
+    max-width: 900px;
+    margin: 36px auto;
+}
+/*
+    SERVICES PAGE BULLET LIST
+
+    max-width: 900px;
+        Keeps the list aligned with the main paragraph content.
+
+    margin: 0 auto 32px auto;
+        Centers the list within the content area and adds
+        space below it.
+
+    padding-left: 24px;
+        Provides enough indentation for the bullet points while
+        keeping the list visually connected to the text.
+
+    line-height: 1.7;
+        Gives the individual list items comfortable spacing.
+
+    Why:
+        Makes the closing list look intentional and consistent
+        with the rest of the Services page.
+*/
+
+#services ul {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    padding-left: 24px;
+    line-height: 1.7;
+}
+/* This is for the Pricing page. I added this to make the Pricing page look more like the other pages. */
+/*
+    PRICING PAGE IMAGE
+
+    width: 300px;
+        Sets the displayed width of the Pricing page image.
+
+    max-width: 100%;
+        Prevents the image from becoming wider than the screen
+        on smaller devices.
+
+    height: auto;
+        Keeps the image's original proportions.
+
+    display: block;
+        Allows the image to be centered using margin.
+
+    margin: 0 auto 32px auto;
+        Centers the image horizontally and adds 32px of space
+        below it.
+
+    Why:
+        Keeps the Pricing page image consistent with the
+        smaller workspace images used on the About and Services
+        pages.
+*/
+
+#pricing-packages .hero-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px auto;
+}
+/*
+    PRICING PAGE TITLE
+
+    font-size: 2.5rem;
+        Makes the page title large enough to establish a clear
+        visual hierarchy.
+
+    font-weight: 700;
+        Gives the title a strong, professional appearance.
+
+    text-align: center;
+        Centers the page title within the page container.
+
+    margin: 40px 0 24px 0;
+        Adds space above the title and creates separation
+        between the title and the image below it.
+
+    Why:
+        Gives the Pricing page the same title treatment as
+        the About and Services pages.
+*/
+
+main h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 40px 0 24px 0;
+}
+/*
+    PRICING PAGE SECTION HEADINGS
+
+    font-size: 1.8rem;
+        Makes the section heading prominent without competing
+        with the main page title.
+
+    font-weight: 700;
+        Gives the heading a strong, clear appearance.
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below the heading before the introductory text.
+
+    Why:
+        Keeps the Pricing page section heading consistent
+        with the section headings used throughout the site.
+*/
+
+#pricing-packages h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+/*
+    PRICING PAGE INTRODUCTION
+
+    max-width: 900px;
+        Limits the width of the introductory text so it remains
+        comfortable to read.
+
+    margin: 0 auto 28px auto;
+        Centers the paragraph within the content area and adds
+        space below it before the pricing cards begin.
+
+    line-height: 1.7;
+        Provides comfortable spacing between lines.
+
+    Why:
+        Keeps the introductory text aligned with the rest of
+        the site's content and gives it enough separation from
+        the pricing boxes below.
+*/
+
+#pricing-packages .pricing-intro {
+    max-width: 900px;
+    margin: 0 auto 28px auto;
+    line-height: 1.7;
+}
+/*
+    PRICING PACKAGE GRID
+
+    max-width: 900px;
+        Keeps the pricing boxes aligned with the main content
+        width used throughout the site.
+
+    margin: 0 auto 32px auto;
+        Centers the grid and adds space below the pricing
+        packages.
+
+    display: grid;
+        Places the pricing packages into a flexible grid.
+
+    grid-template-columns: repeat(2, 1fr);
+        Creates two equal-width columns.
+
+    gap: 20px;
+        Adds consistent horizontal and vertical spacing
+        between the pricing boxes.
+
+    Why:
+        Changes the pricing packages from a traditional table
+        into a cleaner two-column layout that is easier to read
+        and gives each package its own visual space.
+*/
+
+.pricing-cards {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+/*
+    PRICING CARDS
+
+    padding: 24px;
+        Adds comfortable space inside each pricing card.
+
+    background-color: #555555;
+        Uses the same background color as the site header
+        and footer.
+
+    color: #ffffff;
+        Makes all text inside the pricing cards white.
+
+    border-radius: 8px;
+        Gives the cards softly rounded corners.
+
+    text-align: center;
+        Centers the package information within each card.
+
+    Why:
+        Gives the pricing packages a strong visual presence
+        while keeping them consistent with the site's existing
+        header and footer color scheme.
+*/
+
+.pricing-card {
+    padding: 24px;
+    background-color: #555555;
+    color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+}
+/*
+    PRICING CARD HEADINGS
+
+    font-size: 1.4rem;
+        Makes each package name clearly visible within its card.
+
+    font-weight: 700;
+        Gives the package name strong emphasis.
+
+    margin: 0 0 12px 0;
+        Removes the browser's default top margin and adds
+        separation between the package name and page count.
+
+    Why:
+        Creates a clear visual hierarchy inside each pricing
+        card while keeping the styling simple and consistent.
+*/
+
+.pricing-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+}
+/*
+    PRICING CARD PAGE COUNT
+
+    font-size: 1rem;
+        Keeps the page count easy to read without competing
+        with the package name or price.
+
+    margin: 0 0 12px 0;
+        Adds space between the page count and the price.
+
+    Why:
+        Creates a simple visual hierarchy inside each pricing
+        card: package name, pages included, then price.
+*/
+
+.pricing-card .pages-included {
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+}
+/*
+    PRICING CARD PRICE
+
+    font-size: 1.8rem;
+        Makes the price the most prominent piece of information
+        inside each pricing card.
+
+    font-weight: 700;
+        Gives the price strong visual emphasis.
+
+    margin: 0;
+        Removes the browser's default paragraph spacing so the
+        price sits neatly beneath the page count.
+
+    Why:
+        Makes it immediately clear what each package costs while
+        maintaining the simple, clean appearance of the cards.
+*/
+
+.pricing-card .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+/*
+    ADDITIONAL PAGES NOTICE
+
+    max-width: 900px;
+        Keeps the notice aligned with the pricing cards and
+        the other main content on the page.
+
+    margin: 0 auto 32px auto;
+        Centers the notice and adds space below it before
+        the next section begins.
+
+    text-align: center;
+        Gives the pricing note a clear, supporting role beneath
+        the package cards.
+
+    line-height: 1.6;
+        Provides comfortable spacing if the text wraps.
+
+    Why:
+        Separates the additional-page charge from the package
+        cards while keeping it visually connected to the pricing.
+*/
+
+#pricing-packages .additional-pages {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    text-align: center;
+    line-height: 1.6;
+}
+/*
+    HOSTING ADVANTAGES SECTION HEADING
+
+    font-size: 1.8rem;
+        Makes the heading prominent without competing with
+        the main Pricing page title.
+
+    font-weight: 700;
+        Gives the heading a strong, professional appearance.
+
+    margin: 40px 0 20px 0;
+        Adds separation between the pricing section and the
+        hosting section, while providing space below the
+        heading before the introductory paragraph.
+
+    Why:
+        Creates a clear visual break between the two major
+        sections of the Pricing page and keeps the heading
+        consistent with the Website Packages heading.
+*/
+
+#hosting-advantages h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+}
+/*
+    HOSTING ADVANTAGES INTRODUCTION
+
+    max-width: 900px;
+        Limits the introductory text to the same comfortable
+        reading width used throughout the Pricing page.
+
+    margin: 0 auto 28px auto;
+        Centers the text and adds space before the advantage
+        cards begin.
+
+    line-height: 1.7;
+        Provides comfortable spacing between lines.
+
+    Why:
+        Keeps the hosting section consistent with the pricing
+        section and creates a clean transition into the cards.
+*/
+
+#hosting-advantages > p {
+    max-width: 900px;
+    margin: 0 auto 28px auto;
+    line-height: 1.7;
+}
+/*
+    HOSTING ADVANTAGE CARD GRID
+
+    max-width: 900px;
+        Keeps the cards aligned with the main content width
+        used throughout the Pricing page.
+
+    margin: 0 auto 32px auto;
+        Centers the card grid and adds space below it.
+
+    display: grid;
+        Places the four advantage cards into a flexible grid.
+
+    grid-template-columns: repeat(2, 1fr);
+        Creates two equal-width columns.
+
+    gap: 20px;
+        Adds consistent horizontal and vertical spacing
+        between the cards.
+
+    Why:
+        Arranges the four hosting advantages into a clean
+        two-column layout that matches the pricing packages.
+*/
+
+.advantage-cards {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+/*
+    HOSTING ADVANTAGE CARDS
+
+    padding: 24px;
+        Adds comfortable space inside each hosting advantage
+        card.
+
+    background-color: #555555;
+        Uses the same background color as the site header,
+        footer, and pricing cards.
+
+    color: #ffffff;
+        Makes the text inside the cards white.
+
+    border-radius: 8px;
+        Gives the cards softly rounded corners.
+
+    Why:
+        Creates a consistent card design across the Pricing page
+        and ties the hosting advantages visually to the pricing
+        packages above.
+*/
+
+.advantage-cards .card {
+    padding: 24px;
+    background-color: #555555;
+    color: #ffffff;
+    border-radius: 8px;
+}
+/*
+    HOSTING ADVANTAGE CARD HEADINGS
+
+    font-size: 1.3rem;
+        Makes each advantage heading easy to identify without
+        overpowering the card itself.
+
+    font-weight: 700;
+        Gives the heading strong emphasis.
+
+    margin: 0 0 16px 0;
+        Removes the browser's default top margin and adds
+        space between the heading and its paragraph.
+
+    Why:
+        Creates a clear hierarchy within each hosting card and
+        keeps the card headings consistent with the pricing cards.
+*/
+
+.advantage-cards .card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+/*
+    HOSTING ADVANTAGE CARD PARAGRAPHS
+
+    margin: 0;
+        Removes the browser's default paragraph margin so the
+        text sits neatly beneath the card heading.
+
+    line-height: 1.6;
+        Provides comfortable spacing between lines without
+        making the cards unnecessarily tall.
+
+    Why:
+        Keeps the card text clean and readable while allowing
+        the four cards to maintain a consistent appearance.
+*/
+
+.advantage-cards .card p {
+    margin: 0;
+    line-height: 1.6;
+}
+/* This is for the Portfolio page. I added this to make the Portfolio page look more like the other pages. */
+/*
+    PORTFOLIO PAGE IMAGE
+
+    width: 300px;
+        Sets the displayed width of the Portfolio page image.
+
+    max-width: 100%;
+        Prevents the image from becoming wider than the screen
+        on smaller devices.
+
+    height: auto;
+        Keeps the image's original proportions.
+
+    display: block;
+        Allows the image to be centered using margin.
+
+    margin: 0 auto 32px auto;
+        Centers the image horizontally and adds 32px of space
+        below it.
+
+    Why:
+        Keeps the Portfolio page image consistent with the
+        smaller workspace images used on the About, Services,
+        and Pricing pages.
+*/
+
+#portfolio .hero-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px auto;
+}
+/*
+    PORTFOLIO PAGE SECTION HEADING
+
+    font-size: 1.8rem;
+        Makes the section heading prominent without competing
+        with the main page title.
+
+    font-weight: 700;
+        Gives the heading a strong, professional appearance.
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below the heading before the introductory text.
+
+    Why:
+        Keeps the Portfolio page section heading consistent
+        with the section headings used throughout the site.
+*/
+
+#portfolio h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+/*
+    PORTFOLIO PAGE INTRODUCTORY PARAGRAPHS
+
+    max-width: 900px;
+        Limits the introductory text to the same comfortable
+        reading width used throughout the site.
+
+    margin: 0 auto 20px auto;
+        Centers the paragraphs within the content area and
+        adds 20px of space below each paragraph.
+
+    line-height: 1.7;
+        Provides comfortable spacing between lines.
+
+    Why:
+        Keeps the introductory Portfolio text consistent with
+        the About, Services, and Pricing pages while creating
+        enough space before the project cards begin.
+*/
+
+#portfolio > p {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+}
+/*
+    PORTFOLIO PROJECT GRID
+
+    max-width: 900px;
+        Keeps the portfolio cards aligned with the main content
+        width used throughout the site.
+
+    margin: 0 auto 32px auto;
+        Centers the portfolio grid and adds space below it.
+
+    display: grid;
+        Places the portfolio projects into a flexible grid.
+
+    grid-template-columns: repeat(2, 1fr);
+        Creates two equal-width columns for the portfolio cards.
+
+    gap: 20px;
+        Adds consistent horizontal and vertical spacing
+        between the project cards.
+
+    Why:
+        Creates a clean, organized portfolio layout while
+        leaving room to add additional projects as the
+        portfolio grows.
+*/
+
+.portfolio-cards {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+/*
+    PORTFOLIO PROJECT CARDS
+
+    padding: 24px;
+        Adds comfortable space inside each portfolio card.
+
+    background-color: #555555;
+        Uses the same background color as the site header,
+        footer, pricing cards, and hosting advantage cards.
+
+    color: #ffffff;
+        Makes the text inside the portfolio cards white.
+
+    border-radius: 8px;
+        Gives the cards softly rounded corners.
+
+    Why:
+        Creates a consistent card design across the site and
+        gives each portfolio project a clear visual area.
+*/
+
+.portfolio-card {
+    padding: 24px;
+    background-color: #555555;
+    color: #ffffff;
+    border-radius: 8px;
+}
+/*
+    PORTFOLIO CARD HEADINGS
+
+    font-size: 1.4rem;
+        Makes each project name clearly visible within its card.
+
+    font-weight: 700;
+        Gives the project name strong emphasis.
+
+    margin: 0 0 16px 0;
+        Removes the browser's default top margin and adds
+        space between the project name and its description.
+
+    Why:
+        Creates a clear visual hierarchy within each portfolio
+        card and keeps the project headings consistent with the
+        pricing card headings.
+*/
+
+.portfolio-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+/*
+    PORTFOLIO CARD DESCRIPTIONS
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below each description before the website link.
+
+    line-height: 1.6;
+        Provides comfortable spacing between lines while
+        keeping the cards reasonably compact.
+
+    Why:
+        Keeps the project descriptions easy to read and
+        creates consistent spacing between the description
+        and the View Website link.
+*/
+
+.portfolio-card p {
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+/*
+    PORTFOLIO CARD LINKS
+
+    display: inline-block;
+        Allows the link to have padding and behave like a
+        button-style element.
+
+    padding: 10px 18px;
+        Adds comfortable space around the link text.
+
+    background-color: #ffffff;
+        Gives the link a strong contrast against the dark
+        portfolio card.
+
+    color: #555555;
+        Uses the site's primary dark gray for the link text.
+
+    text-decoration: none;
+        Removes the default underline so the link has a
+        clean button-like appearance.
+
+    border-radius: 6px;
+        Gives the link softly rounded corners.
+
+    font-weight: 600;
+        Makes the call-to-action easy to see.
+
+    Why:
+        Makes the website links stand out clearly from the
+        project descriptions while maintaining the site's
+        existing color scheme.
+*/
+
+.portfolio-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #ffffff;
+    color: #555555;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+/* This is for the Contact page. I added this to make the Contact page look more like the other pages. */
+/*
+    CONTACT PAGE IMAGE
+
+    width: 300px;
+        Sets the displayed width of the Contact page image.
+
+    max-width: 100%;
+        Prevents the image from becoming wider than the screen
+        on smaller devices.
+
+    height: auto;
+        Keeps the image's original proportions.
+
+    display: block;
+        Allows the image to be centered using margin.
+
+    margin: 0 auto 32px auto;
+        Centers the image horizontally and adds 32px of space
+        below it.
+
+    Why:
+        Keeps the Contact page image consistent with the
+        workspace images used throughout the other pages.
+*/
+
+#contact .hero-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px auto;
+}
+/*
+    CONTACT PAGE SECTION HEADING
+
+    font-size: 1.8rem;
+        Makes the section heading prominent without competing
+        with the main page title.
+
+    font-weight: 700;
+        Gives the heading a strong, professional appearance.
+
+    margin: 0 0 20px 0;
+        Removes the browser's default top margin and adds
+        space below the heading before the introductory text.
+
+    Why:
+        Keeps the Contact page section heading consistent
+        with the section headings used throughout the site.
+*/
+
+#contact h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+/*
+    CONTACT PAGE INTRODUCTORY PARAGRAPH
+
+    max-width: 900px;
+        Limits the introductory text to the same comfortable
+        reading width used throughout the site.
+
+    margin: 0 auto 28px auto;
+        Centers the paragraph within the content area and adds
+        space below it before the contact form begins.
+
+    line-height: 1.7;
+        Provides comfortable spacing between lines.
+
+    Why:
+        Keeps the Contact page introduction consistent with the
+        About, Services, Pricing, and Portfolio pages while
+        creating enough separation before the form.
+*/
+
+#contact > p {
+    max-width: 900px;
+    margin: 0 auto 28px auto;
+    line-height: 1.7;
+}
+/*
+    CONTACT FORM LAYOUT
+
+    max-width: 700px;
+        Limits the width of the contact form so it does not
+        stretch across the entire page.
+
+    margin: 0 auto 32px auto;
+        Centers the form within the page and adds space below it.
+
+    Why:
+        Gives the Contact page form a comfortable, professional
+        width and keeps it visually centered within the page.
+*/
+
+#contact form {
+    max-width: 700px;
+    margin: 0 auto 32px auto;
+}
+/*
+    CONTACT FORM FIELDS
+
+    margin-bottom: 20px;
+        Adds 20px of space between each form field so the
+        form does not feel crowded.
+
+    Why:
+        Gives the name, email, and message fields clear
+        separation and makes the form easier to scan.
+*/
+
+#contact form > div {
+    margin-bottom: 20px;
+}
+
+
+/*
+    CONTACT FORM MESSAGE BOX
+
+    width: 100%;
+        Makes the message box span the full width of the
+        contact form.
+
+    min-height: 180px;
+        Gives the visitor substantially more room to type
+        a message.
+
+    box-sizing: border-box;
+        Includes padding and border within the defined width
+        so the field does not extend beyond the form.
+
+    Why:
+        Provides a comfortable writing area for visitors while
+        keeping the message box aligned with the other fields.
+*/
+
+#contact .message-box {
+    width: 100%;
+    min-height: 180px;
+    box-sizing: border-box;
+}
+/*
+    CONTACT FORM LABELS
+
+    display: block;
+        Places each label on its own line above its
+        corresponding form field.
+
+    margin-bottom: 8px;
+        Adds a small amount of space between the label
+        and the input field.
+
+    font-weight: 600;
+        Gives the labels enough emphasis to make it clear
+        what information each field requires.
+
+    Why:
+        Creates a clean, easy-to-follow form layout and
+        makes the field labels visually distinct from the
+        information entered by the visitor.
+*/
+
+#contact form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+/*
+    CONTACT FORM TEXT INPUTS
+
+    width: 100%;
+        Makes the name and email fields span the full width
+        of the contact form.
+
+    padding: 12px;
+        Adds comfortable space inside each field so the
+        entered text is easy to read.
+
+    box-sizing: border-box;
+        Includes padding and border within the defined width
+        so the fields stay aligned with the form.
+
+    font-size: 1rem;
+        Keeps the entered text at a comfortable, standard
+        reading size.
+
+    Why:
+        Creates consistent, comfortable input fields that
+        align with the larger message box below them.
+*/
+
+#contact form input[type="text"],
+#contact form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+/*
+    CONTACT FORM BUTTON
+
+    display: block;
+        Allows the button to be positioned cleanly within
+        the form.
+
+    margin: 8px auto 0 auto;
+        Centers the button and adds a small amount of space
+        above it after the message field.
+
+    padding: 12px 24px;
+        Gives the button a comfortable clickable area.
+
+    background-color: #555555;
+        Uses the same dark gray as the site header, footer,
+        pricing cards, hosting cards, and portfolio cards.
+
+    color: #ffffff;
+        Makes the button text clearly visible against the
+        dark background.
+
+    border: none;
+        Removes the browser's default button border.
+
+    border-radius: 6px;
+        Gives the button softly rounded corners.
+
+    font-size: 1rem;
+        Keeps the button text easy to read.
+
+    font-weight: 600;
+        Gives the button label appropriate emphasis.
+
+    cursor: pointer;
+        Changes the cursor when the visitor moves over the
+        button, indicating that it is clickable.
+
+    Why:
+        Creates a clear, professional call-to-action that
+        matches the site's established color and card design.
+*/
+
+#contact form button {
+    display: block;
+    margin: 8px auto 0 auto;
+    padding: 12px 24px;
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+/*
+    CONTACT FORM MESSAGE FIELD
+
+    padding: 12px;
+        Adds comfortable space between the typed message
+        and the edges of the message box.
+
+    font-size: 1rem;
+        Keeps the message text at the same comfortable size
+        as the Name and Email fields.
+
+    font-family: inherit;
+        Uses the same font as the rest of the website.
+
+    resize: vertical;
+        Allows the visitor to make the message box taller
+        if they need additional writing space without allowing
+        the box to become wider than the form.
+
+    Why:
+        Makes the Message field visually consistent with the
+        Name and Email fields while giving visitors flexibility
+        when writing a longer message.
+*/
+
+#contact form .message-box {
+    padding: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
