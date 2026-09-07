@@ -2449,3 +2449,112 @@ main h1 {
     font-family: inherit;
     resize: vertical;
 }
+/*This is for the 404 page. I added this to make the 404 page look more like the other pages. */
+/*
+    THANK YOU PAGE HEADING
+
+    #thank-you h2 {
+        Targets the main heading inside the Thank You section.
+
+    font-size: 1.8rem;
+        Makes the heading prominent while keeping it consistent
+        with the section headings used throughout the site.
+
+    font-weight: 700;
+        Makes the heading bold and easy to read.
+
+    text-align: center;
+        Centers the heading within the page.
+
+    margin: 0 0 20px;
+        Removes the default top margin and adds 20px of space
+        below the heading.
+*/
+
+#thank-you h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 20px;
+}
+/*
+    THANK YOU PAGE PARAGRAPHS
+
+    #thank-you p {
+        Targets the paragraphs inside the Thank You section.
+
+    max-width: 900px;
+        Keeps the text from becoming too wide on larger screens
+        and matches the readable text width used on the other pages.
+
+    margin: 0 auto 20px;
+        Centers the paragraphs horizontally and adds 20px of
+        space below each paragraph.
+
+    line-height: 1.7;
+        Adds comfortable spacing between lines for easier reading.
+*/
+
+#thank-you p {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+}
+/*
+    THANK YOU PAGE BUTTON
+
+    .thank-you-button {
+        Targets the Return to Home link on the Thank You page.
+
+    display: inline-block;
+        Allows the link to behave like a button while accepting
+        padding and sizing.
+
+    background-color: #555555;
+        Uses the same dark gray used for the site's other buttons
+        and cards.
+
+    color: #ffffff;
+        Makes the button text white for strong contrast.
+
+    text-decoration: none;
+        Removes the default underline from the link.
+
+    padding: 12px 24px;
+        Adds comfortable space inside the button.
+
+    border-radius: 6px;
+        Gives the button slightly rounded corners.
+
+    font-weight: 600;
+        Makes the button text stand out.
+
+    margin-top: 10px;
+        Adds a little space between the paragraph text and button.
+*/
+
+.thank-you-button {
+    display: inline-block;
+    background-color: #555555;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+/*
+    THANK YOU PAGE BUTTON ALIGNMENT
+
+    #thank-you {
+        Targets the main Thank You section.
+
+    text-align: center;
+        Centers the Return to Home button within the section.
+        The paragraphs already have their own width and centering,
+        so this does not change their layout.
+*/
+
+#thank-you {
+    text-align: center;
+}
