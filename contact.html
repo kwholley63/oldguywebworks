@@ -62,29 +62,88 @@
                 </p>
 
                 <!-- Contact Form using FormSubmit.co -->
-                <form action="https://formsubmit.co/kwholley63@gmail.com" method="POST">
+                <form action="https://formsubmit.co/ajax/kwholley63@gmail.com"
+                      method="POST"
+                      id="contact-form">
 
                     <!-- Spam Prevention: Hidden field to trick spambots -->
                     <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_next" value="https://kwholley63.github.io/oldguywebworks/thank-you.html">
+
+                    <!-- Custom Thank You Page -->
+                    <input type="hidden"
+                           name="_next"
+                           value="https://kwholley63.github.io/oldguywebworks/thank-you.html">
+
                     <div>
                         <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="Name" required>
+                        <input type="text"
+                               id="name"
+                               name="Name"
+                               required>
                     </div>
 
                     <div>
                         <label for="email">Your Email Address:</label>
-                        <input type="email" id="email" name="Email" required>
+                        <input type="email"
+                               id="email"
+                               name="Email"
+                               required>
                     </div>
 
                     <div>
                         <label for="message">Your Message:</label>
-                        <textarea id="message" name="Message" class="message-box" required></textarea>
+                        <textarea id="message"
+                                  name="Message"
+                                  class="message-box"
+                                  required></textarea>
                     </div>
 
                     <button type="submit">Send Message</button>
 
                 </form>
+
+                <!--
+                    CONTACT FORM AJAX SUBMISSION
+
+                    Prevents the browser from leaving the Contact page
+                    when the form is submitted.
+
+                    The form is sent to FormSubmit using its AJAX endpoint.
+
+                    If FormSubmit reports a successful submission,
+                    the visitor is sent to our custom Thank You page.
+                -->
+
+                <script>
+                    document.getElementById("contact-form").addEventListener("submit", function(event) {
+
+                        event.preventDefault();
+
+                        const form = event.target;
+                        const formData = new FormData(form);
+
+                        fetch(form.action, {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+
+                            if (data.success === "true") {
+                                window.location.href = "thank-you.html";
+                            } else {
+                                alert("There was a problem sending your message. Please try again.");
+                            }
+
+                        })
+                        .catch(() => {
+
+                            alert("There was a problem sending your message. Please try again.");
+
+                        });
+
+                    });
+                </script>
 
             </section>
 
